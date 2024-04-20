@@ -155,8 +155,6 @@ vim.opt.scrolloff = 10
 
 -- [[ CUSTOM KEYMAPS ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set('n', 'J', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', 'K', '<cmd>cprev<CR>zz')
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-s>', '<cmd>update<cr>', { desc = 'update (save)' })
