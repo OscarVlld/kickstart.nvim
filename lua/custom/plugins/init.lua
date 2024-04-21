@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  -- VIM TMUX NAVIGATOR
   {
     'christoomey/vim-tmux-navigator',
     cmd = {
@@ -20,6 +21,7 @@ return {
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
+  -- FUGITIVE
   {
     'tpope/vim-fugitive',
     config = function()
@@ -55,8 +57,16 @@ return {
         end,
       })
 
-      vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>')
-      vim.keymap.set('n', 'gh', '<cmd>diffget //3<CR>')
+      -- vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>')
+      -- vim.keymap.set('n', 'gh', '<cmd>diffget //3<CR>')
+    end,
+  },
+  -- UNDOTREE
+  {
+    'mbbill/undotree',
+
+    config = function()
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
     end,
   },
 }
