@@ -69,4 +69,10 @@ return {
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
     end,
   },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
 }
