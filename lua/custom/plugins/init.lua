@@ -25,9 +25,9 @@ return {
   {
     'tpope/vim-fugitive',
     config = function()
-      vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-      vim.keymap.set('n', '<leader>ga', ':Git add %<CR>')
-      vim.keymap.set('n', '<leader>gc', ':Git commit<CR>')
+      vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]ave' })
+      vim.keymap.set('n', '<leader>ga', ':Git add %<CR>', { desc = '[G]it [A]dd' })
+      vim.keymap.set('n', '<leader>gc', ':Git commit<CR>', { desc = '[G]it [C]ommit' })
 
       local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup('ThePrimeagen_Fugitive', {})
 
@@ -66,7 +66,7 @@ return {
     'mbbill/undotree',
 
     config = function()
-      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndoTree' })
     end,
   },
   {
