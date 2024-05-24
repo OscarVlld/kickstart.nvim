@@ -75,4 +75,17 @@ return {
     -- Optional dependencies
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
+  -- { 'edluffy/hologram.nvim' },
+  {
+    'nvim-lua/popup.nvim',
+  },
+  {
+    'nvim-lua/plenary.nvim',
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+  },
+  {
+    'nvim-telescope/telescope-media-files.nvim',
+  },
 }

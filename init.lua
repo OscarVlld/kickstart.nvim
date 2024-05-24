@@ -163,6 +163,8 @@ vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<C-s>', '<cmd>update<cr>', { desc = 'update (save)' })
 vim.keymap.set('n', '<leader>p', ':term python %<CR>', { desc = 'python run file' })
+-- vim.keymap.set('n', '<leader>x', ':term open %<CR> <C-o>', { desc = 'e[X]ecute buffer' })
+vim.keymap.set('n', '<leader>x', '<cmd>open %<cr>', { desc = 'e[X]ecute buffer' })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -369,6 +371,13 @@ require('lazy').setup({
         -- },
         -- pickers = {}
         extensions = {
+          media_files = {
+            -- filetypes whitelist
+            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+            filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
+            -- find command (defaults to `fd`)
+            find_cmd = 'find',
+          },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -873,7 +882,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -908,3 +917,10 @@ require('lazy').setup({
 
 -- oil.nvim
 require('oil').setup()
+
+-- hologram.nvim
+-- require('hologram').setup {
+--   auto_display = true, -- WIP automatic markdown image display, may be prone to breaking
+-- }
+-- telescope media-files for image preview
+require('telescope').load_extension 'media_files'
