@@ -69,6 +69,7 @@ return {
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndoTree' })
     end,
   },
+  -- OIL
   {
     'stevearc/oil.nvim',
     opts = {},
@@ -87,5 +88,15 @@ return {
   },
   {
     'nvim-telescope/telescope-media-files.nvim',
+  },
+  -- VIMTEX
+  {
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here
+      vim.g.vimtex_view_method = 'skim'
+    end,
   },
 }
