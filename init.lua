@@ -914,10 +914,19 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '<leader>o', function()
+  -- vim.cmd 'vsplit | wincmd l'
+  require('oil').open()
+end, { desc = '[O]il' })
 
--- oil.nvim
-require('oil').setup()
-
+-- vim.keymap.set('n', '<leader>/', function()
+--   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+--   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+--     winblend = 10,
+--     previewer = false,
+--   })
+-- end, { desc = '[/] Fuzzily search in current buffer' })
 -- hologram.nvim
 -- require('hologram').setup {
 --   auto_display = true, -- WIP automatic markdown image display, may be prone to breaking
