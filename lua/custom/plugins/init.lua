@@ -48,7 +48,8 @@ return {
 
           -- rebase always
           vim.keymap.set('n', '<leader>P', function()
-            vim.cmd.Git { 'pull' }
+            -- vim.cmd.Git { 'pull' }
+            vim.cmd.Git { 'pull --rebase' }
           end, opts)
 
           -- NOTE: It allows me to easily set the branch i am pushing and any tracking
@@ -97,6 +98,10 @@ return {
     init = function()
       -- VimTeX configuration goes here
       vim.g.vimtex_view_method = 'skim'
+      -- vim.g.vimtex_view_skim_sync = 1
+      -- vim.g.vimtex_view_skim_activate = 1
+      -- let g:vimtex_view_skim_sync = 1 # Value 1 allows forward search after every successful compilation
+      -- let g:vimtex_view_skim_activate = 1
     end,
   },
 }
