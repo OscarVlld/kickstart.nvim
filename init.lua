@@ -158,6 +158,9 @@ vim.opt.scrolloff = 10
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
+-- remap to jump to the mark instead of beginning of line
+vim.keymap.set('n', "'", '`', { noremap = true, silent = false })
+
 -- vim.keymap.set('n', '<C-j>', 'jzz')
 -- vim.keymap.set('n', '<C-k>', 'kzz')
 
