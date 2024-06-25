@@ -155,8 +155,8 @@ vim.opt.scrolloff = 10
 
 -- [[ CUSTOM KEYMAPS ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+-- vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
+-- vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 -- remap to jump to the mark instead of beginning of line
 vim.keymap.set('n', "'", '`', { noremap = true, silent = false })
@@ -918,11 +918,6 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-vim.keymap.set('n', '<leader>o', function()
-  -- vim.cmd 'vsplit | wincmd l'
-  require('oil').open()
-end, { desc = '[O]il' })
 
 -- vim.keymap.set('n', '<leader>/', function()
 --   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
