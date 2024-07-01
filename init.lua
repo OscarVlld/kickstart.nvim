@@ -205,8 +205,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
+-- Highlight when yanking (copying) text Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -946,18 +945,18 @@ vim.keymap.set('n', '<C-e>', function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
 
-vim.keymap.set('n', '<leader>jb', function()
+vim.keymap.set('n', '<leader>1', function()
   harpoon:list():select(1)
 end)
-vim.keymap.set('n', '<leader>jt', function()
+vim.keymap.set('n', '<leader>2', function()
   harpoon:list():select(2)
 end)
--- vim.keymap.set('n', '<C-n>', function()
---   harpoon:list():select(3)
--- end)
--- vim.keymap.set('n', '<C-s>', function()
---   harpoon:list():select(4)
--- end)
+vim.keymap.set('n', '<leader>3', function()
+  harpoon:list():select(3)
+end)
+vim.keymap.set('n', '<leader>4', function()
+  harpoon:list():select(4)
+end)
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set('n', '<C-S-P>', function()
@@ -966,3 +965,11 @@ end)
 vim.keymap.set('n', '<C-S-N>', function()
   harpoon:list():next()
 end)
+
+-- OIL
+require('oil').setup {
+  keymaps = {
+    ['<C-s>'] = '<CMD>write<CR>',
+    ['<C-c>'] = '<Esc>',
+  },
+}
