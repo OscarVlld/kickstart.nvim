@@ -18,7 +18,7 @@
 ========                                                     ========
 =====================================================================
 =====================================================================
- 
+
 What is Kickstart?
 
   Kickstart.nvim is *not* a distribution.
@@ -165,6 +165,7 @@ vim.keymap.set('n', "'", '`', { noremap = true, silent = false })
 -- vim.keymap.set('n', '<C-k>', 'kzz')
 
 vim.keymap.set('n', '<C-s>', '<cmd>update<cr>', { desc = 'update (save)' })
+vim.keymap.set({ 'i', 'v' }, '<C-s>', '<Esc><cmd>update<cr>', { desc = 'come back to normal and update (save)' })
 -- vim.keymap.set('n', '<leader>x', ':term open %<CR> <C-o>', { desc = 'e[X]ecute buffer' })
 vim.keymap.set('n', '<leader>x', '<cmd>open %<cr>', { desc = 'e[X]ecute buffer' })
 
