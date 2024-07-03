@@ -165,7 +165,7 @@ vim.keymap.set('n', "'", '`', { noremap = true, silent = false })
 -- vim.keymap.set('n', '<C-k>', 'kzz')
 
 vim.keymap.set('n', '<C-s>', '<cmd>update<cr>', { desc = 'update (save)' })
-vim.keymap.set({ 'i', 'v' }, '<C-s>', '<Esc><cmd>update<cr>', { desc = 'come back to normal and update (save)' })
+vim.keymap.set({ 'i', 'v' }, '<C-s>', '<cmd>update<cr><Esc>', { desc = 'come back to normal and update (save)' })
 -- vim.keymap.set('n', '<leader>x', ':term open %<CR> <C-o>', { desc = 'e[X]ecute buffer' })
 vim.keymap.set('n', '<leader>x', '<cmd>open %<cr>', { desc = 'e[X]ecute buffer' })
 
@@ -938,33 +938,19 @@ local harpoon = require 'harpoon'
 harpoon:setup()
 -- REQUIRED
 
-vim.keymap.set('n', '<leader>a', function()
-  harpoon:list():add()
-end, { desc = '[A]dd to harpoon' })
-vim.keymap.set('n', '<C-e>', function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
-
-vim.keymap.set('n', '<leader>1', function()
-  harpoon:list():select(1)
-end, { desc = 'harpoon 1' })
-vim.keymap.set('n', '<leader>2', function()
-  harpoon:list():select(2)
-end, { desc = 'harpoon 2' })
-vim.keymap.set('n', '<leader>3', function()
-  harpoon:list():select(3)
-end, { desc = 'harpoon 3' })
-vim.keymap.set('n', '<leader>4', function()
-  harpoon:list():select(4)
-end, { desc = 'harpoon 4' })
-
--- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set('n', '<C-S-P>', function()
-  harpoon:list():prev()
-end)
-vim.keymap.set('n', '<C-S-N>', function()
-  harpoon:list():next()
-end)
+-- require('harpoon').setup {}
+-- save_on_toggle = true,
+-- save_on_change = true,
+-- -- This will save the harpoon state when toggling the menu or changing files
+-- -- You can also specify a file path to save the state
+-- global_settings = {
+--   save_on_toggle = true,
+--   save_on_change = true,
+--   enter_on_sendcmd = false,
+--   tmux_autoclose_windows = false,
+--   excluded_filetypes = { 'harpoon' },
+--   save_file = vim.fn.expand '~/.config/nvim/harpoon.json',
+-- },
 
 -- OIL
 require('oil').setup {
