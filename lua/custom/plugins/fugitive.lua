@@ -1,12 +1,13 @@
 -- FUGITIVE
-return
--- FUGITIVE
-{
+return {
   'tpope/vim-fugitive',
   config = function()
-    vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]ave' })
+    vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]tatus' })
     vim.keymap.set('n', '<leader>ga', ':Git add %<CR>', { desc = '[G]it [A]dd' })
     vim.keymap.set('n', '<leader>gc', ':Git commit<CR>', { desc = '[G]it [C]ommit' })
+    vim.keymap.set('n', '<leader>gh', ':Git stash<CR>', { desc = '[G]it stas[H]' })
+    vim.keymap.set('n', '<leader>gH', ':Git stash pop<CR>', { desc = '[G]it stas[H] pop' })
+    vim.keymap.set('n', '<leader>gl', ':Git log<CR>', { desc = '[G]it [L]og' })
 
     local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup('ThePrimeagen_Fugitive', {})
 
