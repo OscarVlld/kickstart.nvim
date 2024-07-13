@@ -1,8 +1,8 @@
-require 'my_keymaps'
-
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+require 'my_keymaps'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -28,7 +28,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 100
+vim.opt.updatetime = 300
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
@@ -64,6 +64,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>m', 'i', { desc = 'test' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -530,7 +531,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'autopep8' },
+        python = { 'autopep8' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -607,12 +608,6 @@ require('lazy').setup({
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
           ['<C-y>'] = cmp.mapping.confirm { select = true },
-
-          -- If you prefer more traditional completion keymaps,
-          -- you can uncomment the following lines
-          --['<CR>'] = cmp.mapping.confirm { select = true },
-          --['<Tab>'] = cmp.mapping.select_next_item(),
-          --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -796,6 +791,7 @@ require('lazy').setup({
 --     previewer = false,
 --   })
 -- end, { desc = '[/] Fuzzily search in current buffer' })
+
 -- hologram.nvim
 -- require('hologram').setup {
 --   auto_display = true, -- WIP automatic markdown image display, may be prone to breaking
@@ -807,7 +803,51 @@ require('telescope').load_extension 'media_files'
 local harpoon = require 'harpoon'
 -- REQUIRED
 harpoon:setup()
--- REQUIRED
+-- local harpoon = require("harpoon")
+
+-- harpoon:setup {"cmd" = {}}
+--    }}
+-- {
+--    -- Setting up custom behavior for a list named "cmd"
+--    "cmd" = {
+--    }, })
+
+-- When you call list:add() this function is called and the return
+-- value will be put in the list at the end.
+--
+-- which means same behavior for prepend except where in the list the
+-- return value is added
+--
+-- @param possible_value string only passed in when you alter the ui manual
+-- add = function(possible_value)
+--     -- get the current line idx
+--     local idx = vim.fn.line(".")
+--
+--     -- read the current line
+--     local cmd = vim.api.nvim_buf_get_lines(0, idx - 1, idx, false)[1]
+--     if cmd == nil then
+--         return nil
+--     end
+--
+--     return {
+--         value = cmd,
+--         context = {},
+--     }
+--   end,
+--
+-- --- This function gets invoked with the options being passed in from
+-- --- list:select(index, <...options...>)
+-- --- @param list_item {value: any, context: any}
+-- --- @param list { ... }
+-- --- @param option any
+-- select = function(list_item, list, option)
+--     -- WOAH, IS THIS HTMX LEVEL XSS ATTACK??
+--     vim.cmd(list_item.value)
+-- end
+
+-- },})
+
+--REQUIRED
 
 -- require('harpoon').setup {}
 -- save_on_toggle = true,
