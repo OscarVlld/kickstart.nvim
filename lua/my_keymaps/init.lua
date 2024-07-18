@@ -6,10 +6,6 @@ vim.keymap.set({ 'i', 'v' }, '<C-s>', '<cmd>update<cr><Esc>', { desc = 'come bac
 -- vim.keymap.set('n', '<leader>x', ':term open %<CR> <C-o>', { desc = 'e[X]ecute buffer' })
 vim.keymap.set('n', '<leader>br', ':edit<cr>', { desc = '[B]uffer [R]eload' })
 
--- require('which-key').register {
---   ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
--- }
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
