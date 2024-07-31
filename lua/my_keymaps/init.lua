@@ -6,6 +6,8 @@ vim.keymap.set({ 'i', 'v' }, '<C-s>', '<cmd>update<cr><Esc>', { desc = 'come bac
 -- vim.keymap.set('n', '<leader>x', ':term open %<CR> <C-o>', { desc = 'e[X]ecute buffer' })
 vim.keymap.set('n', '<leader>br', ':edit<cr>', { desc = '[B]uffer [R]eload' })
 
+-- vim.keymap.set({ 'n', 'v' }, '<C-;>', 'gc', { desc = 'comment', noremap = false })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -14,3 +16,7 @@ vim.keymap.set('n', '<leader>br', ':edit<cr>', { desc = '[B]uffer [R]eload' })
 -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- next and previous buffers
+vim.keymap.set('n', '<Left>', ':bprev<CR>', { desc = 'previous buffer' })
+vim.keymap.set('n', '<Right>', ':bnext<CR>', { desc = 'net buffer' })
