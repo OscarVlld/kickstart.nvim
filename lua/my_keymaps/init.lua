@@ -6,8 +6,6 @@ vim.keymap.set({ 'i', 'v' }, '<C-s>', '<cmd>update<cr><Esc>', { desc = 'come bac
 -- vim.keymap.set('n', '<leader>x', ':term open %<CR> <C-o>', { desc = 'e[X]ecute buffer' })
 vim.keymap.set('n', '<leader>br', ':edit<cr>', { desc = '[B]uffer [R]eload' })
 
--- vim.keymap.set({ 'n', 'v' }, '<C-;>', 'gc', { desc = 'comment', noremap = false })
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -25,7 +23,7 @@ vim.keymap.set('n', '<C-S-j>', '<C-w>-', { desc = 'decrease split hight' })
 
 -- next and previous buffers
 vim.keymap.set('n', '<Left>', ':bprev<CR>', { desc = 'previous buffer' })
-vim.keymap.set('n', '<Right>', ':bnext<CR>', { desc = 'net buffer' })
+vim.keymap.set('n', '<Right>', ':bnext<CR>', { desc = 'next buffer' })
 
 -- TOGGLE DIAGNOSTICS
 -- command to toggle inline diagnostics
@@ -40,11 +38,11 @@ end, {})
 
 -- Command to toggle diagnostics
 vim.api.nvim_create_user_command('DiagnosticsToggle', function()
-  local current_value = vim.diagnostic.is_disabled()
+  local current_value = vim.diagnostic.is_disabled() -- deprecated, use vim.diagnostic.is_enabled()
   if current_value then
     vim.diagnostic.enable()
   else
-    vim.diagnostic.disable()
+    vim.diagnostic.disable() -- deprecated, use vim.diagnostic.enable(false,...)
   end
 end, {})
 
