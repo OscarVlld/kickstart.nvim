@@ -51,3 +51,7 @@ end, {})
 -- Keybindings to toggle diagnostics and virtual_text
 vim.api.nvim_set_keymap('n', '<Leader>td', ':lua vim.cmd("DiagnosticsToggle")<CR>', { noremap = true, desc = '[T]oggle [D]iagnostics' })
 vim.api.nvim_set_keymap('n', '<Leader>ti', ':lua vim.cmd("DiagnosticsToggleVirtualText")<CR>', { noremap = true, desc = '[T]oggle [I]nline diagnostics' })
+
+-- faster code comment
+vim.keymap.set('n', '<Leader>k', 'gcc', { remap = true, silent = false })
+vim.keymap.set('v', '<Leader>k', 'gc', { remap = true, silent = false })
