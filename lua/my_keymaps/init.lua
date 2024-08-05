@@ -17,6 +17,12 @@ vim.keymap.set('n', '<leader>br', ':edit<cr>', { desc = '[B]uffer [R]eload' })
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- change split sizes
+vim.keymap.set('n', '<C-S-l>', '<C-w><C-char-62>', { desc = 'increase split width' })
+vim.keymap.set('n', '<C-S-h>', '<C-w><C-char-60>', { desc = 'decrease split width' })
+vim.keymap.set('n', '<C-S-k>', '<C-w>+', { desc = 'increase split hight' })
+vim.keymap.set('n', '<C-S-j>', '<C-w>-', { desc = 'decrease split hight' })
+
 -- next and previous buffers
 vim.keymap.set('n', '<Left>', ':bprev<CR>', { desc = 'previous buffer' })
 vim.keymap.set('n', '<Right>', ':bnext<CR>', { desc = 'net buffer' })
