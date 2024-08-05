@@ -1,5 +1,6 @@
 local map = vim.keymap.set
-map('n', '<leader>p', ':term python %<CR>', { desc = '[P]lay (run python run file)' })
+
+map('n', '<leader>p', ':vsplit<CR>:term python %<CR><C-w>h', { desc = '[P]lay (run python run file)', silent = true })
 
 -- IRON (interactive mode)
 require('which-key').register {
