@@ -862,4 +862,22 @@ harpoon:setup()
 --   tmux_autoclose_windows = false,
 --   excluded_filetypes = { 'harpoon' },
 --   save_file = vim.fn.expand '~/.config/nvim/harpoon.json',
--- },
+
+-- OIL.NVIM
+require('oil').setup {
+  use_default_keymaps = false, -- Disable default key mappings
+  keymaps = {
+    ['g?'] = 'actions.show_help',
+    ['<CR>'] = 'actions.select',
+    ['<C-l>'] = 'actions.select_vsplit',
+    ['<C-j>'] = 'actions.select_split',
+    ['<C-p>'] = 'actions.preview',
+    -- ['<C-c>'] = 'actions.close',
+    ['<C-k>'] = 'actions.refresh',
+    ['-'] = 'actions.parent',
+    ['_'] = 'actions.open_cwd',
+    ['`'] = 'actions.cd',
+    ['~'] = 'actions.tcd',
+    ['g.'] = 'actions.toggle_hidden',
+  },
+}

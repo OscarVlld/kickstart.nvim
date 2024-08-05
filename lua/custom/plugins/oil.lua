@@ -12,8 +12,4 @@ return {
   opts = {},
   -- Optional dependencies
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  keymaps = {
-    ['<C-s>'] = '<CMD>write<CR>',
-    ['<C-c>'] = '<Esc>',
-  },
 }
