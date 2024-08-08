@@ -879,5 +879,6 @@ require('oil').setup {
     ['`'] = 'actions.cd',
     ['~'] = 'actions.tcd',
     ['g.'] = 'actions.toggle_hidden',
+    ['gx'] = 'actions.open_external',
   },
 }
