@@ -1,7 +1,6 @@
 require 'settings'
 require 'my_keymaps'
 
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
