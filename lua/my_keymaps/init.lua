@@ -7,23 +7,18 @@ vim.keymap.set({ 'i', 'v' }, '<C-s>', '<cmd>update<cr><Esc>', { desc = 'come bac
 vim.keymap.set('n', '<leader>br', ':edit<cr>', { desc = '[B]uffer [R]eload' })
 
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
+--  Use Superkey+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<Left>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<Right>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<Down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<Up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- change split sizes
 vim.keymap.set('n', '<C-S-l>', '<C-w><C-char-62>', { desc = 'increase split width' })
 vim.keymap.set('n', '<C-S-h>', '<C-w><C-char-60>', { desc = 'decrease split width' })
 vim.keymap.set('n', '<C-S-k>', '<C-w>+', { desc = 'increase split hight' })
 vim.keymap.set('n', '<C-S-j>', '<C-w>-', { desc = 'decrease split hight' })
-
--- next and previous buffers
-vim.keymap.set('n', '<Left>', ':bprev<CR>', { desc = 'previous buffer' })
-vim.keymap.set('n', '<Right>', ':bnext<CR>', { desc = 'next buffer' })
 
 -- TOGGLE DIAGNOSTICS
 -- command to toggle inline diagnostics
