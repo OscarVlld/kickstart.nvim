@@ -14,6 +14,8 @@ vim.keymap.set('n', '<Right>', '<C-w><C-l>', { desc = 'Move focus to the right w
 vim.keymap.set('n', '<Down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<Up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<leader><tab>', '<C-6>', { desc = 'alternate file' })
+
 -- change split sizes
 vim.keymap.set('n', '<C-S-l>', '<C-w><C-char-62>', { desc = 'increase split width' })
 vim.keymap.set('n', '<C-S-h>', '<C-w><C-char-60>', { desc = 'decrease split width' })
