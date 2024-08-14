@@ -45,6 +45,12 @@ end, {})
 vim.api.nvim_set_keymap('n', '<Leader>td', ':lua vim.cmd("DiagnosticsToggle")<CR>', { noremap = true, desc = '[T]oggle [D]iagnostics' })
 vim.api.nvim_set_keymap('n', '<Leader>ti', ':lua vim.cmd("DiagnosticsToggleVirtualText")<CR>', { noremap = true, desc = '[T]oggle [I]nline diagnostics' })
 
+-- toogle spellcheck
+vim.keymap.set('n', '<Leader>ts', function()
+  vim.o.spell = not vim.o.spell
+  print('spell: ' .. tostring(vim.o.spell))
+end, { desc = '[T]oogle [S]pellcheck' })
+
 -- faster code comment
 vim.keymap.set('n', '<Leader>k', 'gcc', { remap = true, silent = false })
 vim.keymap.set('v', '<Leader>k', 'gc', { remap = true, silent = false })
