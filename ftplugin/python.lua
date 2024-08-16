@@ -3,8 +3,8 @@ local map = vim.keymap.set
 map('n', '<leader>p', ':vsplit<CR>:term python %<CR><C-w>h', { desc = '[P]lay (run python run file)', silent = true })
 
 -- IRON (interactive mode)
-require('which-key').register {
-  ['<leader>i'] = { name = '[I]ron', _ = 'which_key_ignore' },
+require('which-key').add {
+  { '<leader>i', group = '[I]ron' },
 }
 
 local iron = require 'iron.core'
