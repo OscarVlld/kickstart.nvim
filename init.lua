@@ -813,3 +813,16 @@ require('oil').setup {
 -- motlen.nvim (for notebooks)
 vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/bin/python3'
 -- vim.g.python3_host_prog = vim.fn.expand '/opt/homebrew/Caskroom/miniconda/base/envs/climpact/bin/python'
+--
+vim.keymap.set('n', '<localleader>ip', function()
+  local venv = os.getenv 'climpact'
+  print(venv)
+  if venv ~= nil then
+    -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+    venv = string.match(venv, '/.+/(.+)')
+    vim.cmd(('MoltenInit %s'):format(venv))
+  else
+    print 'ENV NOT FOUND'
+    vim.cmd 'MoltenInit python3'
+  end
+end, { desc = 'Initialize Molten for python3', silent = true })
