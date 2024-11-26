@@ -811,11 +811,14 @@ require('oil').setup {
 }
 
 -- motlen.nvim (for notebooks)
-vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/bin/python3'
 -- vim.g.python3_host_prog = vim.fn.expand '/opt/homebrew/Caskroom/miniconda/base/envs/climpact/bin/python'
+-- vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/bin/python3'
+vim.g.python3_host_prog = vim.fn.expand '/opt/homebrew/Caskroom/miniconda/base/envs/neovim/bin/python'
+
 --
 vim.keymap.set('n', '<localleader>ip', function()
-  local venv = os.getenv 'climpact'
+  local venv = os.getenv 'VIRTUAL_ENV' or os.getenv 'CONDA_PREFIX'
+  -- local venv = os.getenv 'climpact'
   print(venv)
   if venv ~= nil then
     -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
@@ -826,3 +829,39 @@ vim.keymap.set('n', '<localleader>ip', function()
     vim.cmd 'MoltenInit python3'
   end
 end, { desc = 'Initialize Molten for python3', silent = true })
+
+-- jupytext setup
+require('jupytext').setup {
+  style = 'markdown',
+  output_extension = 'md',
+  force_ft = 'markdown',
+}
+
+-- QUARTO SETUP
+local quarto = require 'quarto'
+quarto.setup {
+  lspFeatures = {
+    -- NOTE: put whatever languages you want here:
+    languages = { 'python' },
+    chunks = 'all',
+    diagnostics = {
+      enabled = true,
+      triggers = { 'BufWritePost' },
+    },
+    completion = {
+      enabled = true,
+    },
+  },
+  keymap = {
+    -- NOTE: setup your own keymaps:
+    hover = 'H',
+    definition = 'gd',
+    rename = '<leader>rn',
+    references = 'gr',
+    format = '<leader>gf',
+  },
+  codeRunner = {
+    enabled = true,
+    default_method = 'molten',
+  },
+}
