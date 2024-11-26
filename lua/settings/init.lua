@@ -54,7 +54,10 @@ vim.opt.scrolloff = 10
 -- highlight search
 vim.opt.hlsearch = true
 
--- MOLTEN ---------------------------
+-- MY SETTINGS
+vim.opt.swapfile = false
+
+-- MOLTEN ---------------------------
 
 -- I find auto open annoying, keep in mind setting this option will require setting
 -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
@@ -86,14 +89,3 @@ vim.keymap.set('n', '<localleader>md', ':MoltenDelete<CR>', { desc = 'delete Mol
 
 -- if you work with html outputs:
 vim.keymap.set('n', '<localleader>mx', ':MoltenOpenInBrowser<CR>', { desc = 'open output in browser', silent = true })
-
--- QUARTO
--- local runner = require 'quarto.runner'
--- vim.keymap.set('n', '<localleader>rc', runner.run_cell, { desc = 'run cell', silent = true })
--- vim.keymap.set('n', '<localleader>ra', runner.run_above, { desc = 'run cell and above', silent = true })
--- vim.keymap.set('n', '<localleader>rA', runner.run_all, { desc = 'run all cells', silent = true })
--- vim.keymap.set('n', '<localleader>rl', runner.run_line, { desc = 'run line', silent = true })
--- vim.keymap.set('v', '<localleader>r', runner.run_range, { desc = 'run visual range', silent = true })
--- vim.keymap.set('n', '<localleader>RA', function()
---   runner.run_all(true)
--- end, { desc = 'run all cells of all languages', silent = true })
